@@ -8,21 +8,79 @@
   --primary-100: #9ae600;
   --primary-200: #7ccf00;
   --text: #fff;
-  --text-grey: #a0aec0;
+  --text-grey-100: #a1a1a1;
+  --text-grey-200: #71717b;
   --text-placeholder: #474b4c;
 
-  font-size: 62.5%;
-}
-
-html {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1.6rem;
-}
-
-fonte-refinada {
-  font-family: "Newsreader", serif;
+  font-size: 62.5% !important;
 }
 
 body {
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: 1.6rem !important;
   color: var(--text);
+}
+
+.fonte-refinada {
+  font-family: "Newsreader", serif;
+}
+
+.receita-background {
+  height: 40vh;
+}
+
+.receita-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.receita-header {
+  margin-top: 32px;
+}
+
+.receita-header .titulo {
+  margin-top: 2.8rem;
+  font-weight: 600;
+}
+
+.receita-header .descricao {
+  font-size: 1.8rem;
+  display: block;
+  margin: 12px 0;
+}
+
+.receita-header-badges {
+  display: flex;
+  gap: 20px;
+  padding: 12px 4px;
+  align-items: center;
+}
+
+.receita-header-badges .badge-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid var(--text-grey-100);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.receita-header-badges .badge-titulo {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1px;
+  color: var(--text-grey-200);
+  font-size: 1.4rem;
+}
+
+.receita-header-badges .badge-valor {
+  font-weight: 700;
+}
+
+.divisor {
+  width: 100%;
+  height: 1px;
+  background-color: var(--text-grey-100);
+  margin: 32px 0;
 }
