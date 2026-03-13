@@ -21,12 +21,16 @@ body {
   color: var(--text);
 }
 
-.fonte-refinada {
-  font-family: "Newsreader", serif;
-}
-
 .receita-background {
   height: 40vh;
+  position: relative;
+}
+
+.receita-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .receita-background img {
