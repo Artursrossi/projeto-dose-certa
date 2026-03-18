@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+/* Definir cores reutilizáveis com variáveis de CSS */
 :root {
   --primary-100: #9ae600;
   --primary-200: #7ccf00;
@@ -104,8 +105,8 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 24px;
-  z-index: 999;
-  transition: all 0.2s ease-in-out;
+  z-index: 999; /* Garantir que o botão fique acima de outros elementos */
+  transition: all 0.2s ease-in-out; /* Efeito de transição suave para hover */
 }
 
 .menu-btn:hover {
@@ -158,14 +159,73 @@ body {
   padding: 12px 16px;
   font-size: 1.8rem;
   font-weight: 500;
-  text-decoration: none;
   background-color: var(--primary-200);
   color: white;
-  transition: all 0.2s ease-in-out;
+  text-decoration: none; /* Remover sublinhado padrão dos links */
+  transition: all 0.2s ease-in-out; /* Efeito de transição suave para hover */
 }
 
 .modal-menu-link:hover {
-  text-decoration: none;
+  text-decoration: none; /* Não exibir sublinhado ao passar o mouse */
   color: white;
-  scale: 1.02;
+  scale: 1.02; /* Aumentar o tamanho ao passar o mouse */
+}
+
+.receita-conteudo {
+  padding: 0 24px;
+  border: 1px solid var(--text-grey-100);
+  border-radius: 12px;
+}
+
+.receita-conteudo-container {
+  margin-left: 12px;
+  margin-top: 24px;
+}
+
+.ingredientes-lista-item {
+  padding: 6px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.ingredientes-check-input {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  border: 2px solid var(--primary-200);
+  border-radius: 4px;
+  position: relative;
+  background-color: transparent; /* Deixe o fundo transparente para mostrar a borda personalizada */
+  flex-shrink: 0; /* Não deixe o checkbox encolher */
+  appearance: none; /* Nenhuma aparência padrão */
+}
+
+.ingredientes-check-input:checked {
+  background-color: var(--primary-200);
+}
+
+/* Estilizar a flecha dentro do checkbox quando estiver marcado */
+.ingredientes-check-input:checked::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+  border: 2px solid white;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.ingredientes-check-label {
+  font-size: 1.8rem;
+  margin-bottom: 0 !important;
+  cursor: pointer;
+}
+
+.ingredientes-check-input:checked + .ingredientes-check-label {
+  text-decoration: line-through; /* Riscar a linha quando a opção estiver selecionada */
+  color: var(--text-grey-200);
 }
