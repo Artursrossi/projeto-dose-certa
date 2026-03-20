@@ -27,6 +27,19 @@ body {
   margin-bottom: 64px;
 }
 
+.imagem-paincipal-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.imagem-principal {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .menu-btn {
   position: fixed;
   top: 20px;
@@ -148,7 +161,8 @@ body {
 /* Efeito de Overlay, para adicionar uma leve camada preta sobre a imagem de fundo 
    O seletor ::after do CSS é utilizado para criar um elemento virtual que é inserido após o conteúdo de um elemento 
 */
-.receita-background::after {
+.receita-background::after,
+.imagem-paincipal-container::after {
   content: "";
   position: absolute;
   inset: 0; /* Cobrir todo o elemento pai */
