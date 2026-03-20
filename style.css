@@ -1,3 +1,4 @@
+/* Padrão utilizado para restaurar as configurações padrão do navegador */
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +14,7 @@
   --text-grey-200: #71717b;
   --text-placeholder: #474b4c;
 
-  font-size: 62.5% !important;
+  font-size: 62.5% !important; /* 1rem = 10px */
 }
 
 body {
@@ -27,21 +28,24 @@ body {
 }
 
 .receita-background {
-  height: 40vh;
+  height: 40vh; /* 40% da altura da tela */
   position: relative;
 }
 
+/* Efeito de Overlay, para adicionar uma leve camada preta sobre a imagem de fundo 
+   O seletor ::after do CSS é utilizado para criar um elemento virtual que é inserido após o conteúdo de um elemento 
+*/
 .receita-background::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 0; /* Cobrir todo o elemento pai */
   background-color: rgba(0, 0, 0, 0.3);
 }
 
 .receita-background img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Garantir que a imagem cubra todo o espaço disponível */
 }
 
 .receita-header {
@@ -61,7 +65,7 @@ body {
 
 .receita-header-badges {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Permitir que os itens quebrem para a próxima linha se não houver espaço suficiente */
   gap: 20px;
   padding: 12px 4px;
   align-items: center;
@@ -79,7 +83,7 @@ body {
 .receita-header-badges .badge-titulo {
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.1px; /* Deixar as letras um pouco mais espaçadas para melhorar a legibilidade */
   color: var(--text-grey-200);
   font-size: 1.4rem;
 }
@@ -110,7 +114,7 @@ body {
   justify-content: center;
   font-size: 24px;
   z-index: 999; /* Garantir que o botão fique acima de outros elementos */
-  transition: all 0.2s ease-in-out; /* Efeito de transição suave para hover */
+  transition: all 0.2s ease-in-out; /* Efeito de transição suave para o hover */
 }
 
 .menu-btn:hover {
@@ -118,6 +122,7 @@ body {
   cursor: pointer;
 }
 
+/* O seletor > do CSS é utilizado para selecionar APENAS os elementos filhos diretos, e nenhum outro na hierarquia */
 .menu-btn > svg {
   color: white;
 }
@@ -186,14 +191,16 @@ body {
   margin-top: 24px;
 }
 
-.ingredientes-lista-item {
+.ingredientes-lista-item,
+.modo-de-preparo-item {
   padding: 6px;
   display: flex;
   gap: 12px;
   align-items: center;
 }
 
-.ingredientes-check-input {
+.ingredientes-check-input,
+.modo-de-preparo-check-input {
   width: 22px;
   height: 22px;
   cursor: pointer;
@@ -205,12 +212,17 @@ body {
   appearance: none; /* Nenhuma aparência padrão */
 }
 
-.ingredientes-check-input:checked {
+.ingredientes-check-input:checked,
+.modo-de-preparo-check-input:checked {
   background-color: var(--primary-200);
 }
 
-/* Estilizar a flecha dentro do checkbox quando estiver marcado */
-.ingredientes-check-input:checked::after {
+/* Estilizar a flecha dentro do checkbox quando estiver marcado
+    A pseudo-classe ::after é usada para criar um elemento visual adicional dentro do checkbox, 
+    que é posicionado e estilizado para parecer uma marca de seleção (checkmark) quando o checkbox estiver marcado.
+*/
+.ingredientes-check-input:checked::after,
+.modo-de-preparo-check-input:checked::after {
   content: "";
   position: absolute;
   left: 6px;
@@ -220,17 +232,20 @@ body {
   border: 2px solid white;
   border-top: none;
   border-left: none;
-  transform: rotate(45deg);
+  transform: rotate(45deg); /* Rotacionar para criar a forma de checkmark */
 }
 
-.ingredientes-check-label {
+.ingredientes-check-label,
+.modo-de-preparo-check-label {
   font-size: 1.8rem;
   margin-bottom: 0 !important;
   cursor: pointer;
   user-select: none; /* Evitar que o texto seja selecionado ao clicar */
 }
 
-.ingredientes-check-input:checked + .ingredientes-check-label {
+/* O + do CSS é utilizado para selecionar o elemento irmão imediatamente seguinte */
+.ingredientes-check-input:checked + .ingredientes-check-label,
+.modo-de-preparo-check-input:checked + .modo-de-preparo-check-label {
   text-decoration: line-through; /* Riscar a linha quando a opção estiver selecionada */
   color: var(--text-grey-200);
 }
