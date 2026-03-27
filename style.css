@@ -258,6 +258,9 @@ body {
   gap: 12px;
   align-items: center;
 }
+.modo-de-preparo-item {
+  padding: 10px 6px !important; /* Garantir que o espaçamento apenas do modo de preparo seja sobrescrito */
+}
 
 .ingredientes-check-input,
 .modo-de-preparo-check-input {
